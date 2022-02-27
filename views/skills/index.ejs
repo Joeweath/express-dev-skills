@@ -7,7 +7,7 @@
   <title>Express Skills</title>
 </head>
 <body>
-  <h1>Skills</h1>
+  <h1>Skills as of <%= time %></h1>
   <% if(error) { %>
     <h2><%= error %></h2>
   <% } %>
@@ -20,5 +20,6 @@
       </li>
     <% }) %>
   </ul>
+  <a href="/skills/new">Add a Skill</a>
 </body>
 </html>

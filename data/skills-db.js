@@ -30,4 +30,13 @@ const findById = (id, callback) => {
   }
 };
 
-export { find, findById };
+function create(skill, callback) {
+  // Add the id
+  skill._id = Date.now() % 1000000;
+  // New skills wouldn't be done
+  skill.enjoy = false;
+  skills.push(skill);
+  return callback(null, skill);
+}
+
+export { find, findById, create };
