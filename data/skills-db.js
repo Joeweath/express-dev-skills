@@ -11,7 +11,7 @@ const find = (conditions, callback) => {
     if (!(conditions instanceof Object)) {
       throw new TypeError("Please pass in an object");
     }
-    // If the object is empty, return all the todos
+    // If the object is empty, return all the skills
     if (Object.keys(conditions).length === 0) return callback(null, skills);
     // deal with errors
   } catch (error) {
@@ -19,5 +19,15 @@ const find = (conditions, callback) => {
     callback(error, []);
   }
 };
+const findById = (id, callback) => {
+  try {
+    const skill = skills.find((skill) => skill._id === parseInt(id));
+    if (!skill) throw new Error("No skill was found");
+    return callback(null, skill);
+  } catch (error) {
+    console.log(error);
+    return callback(error, null);
+  }
+};
 
-export { find };
+export { find, findById };
